@@ -1,0 +1,59 @@
+class Food {
+    constructor(){
+        this.foodStock = 0;
+        this.lastFed;
+        this.image = loadImage("milk.png");
+    }
+    
+    updateFoodStock(foodStock){
+        this.foodStock=foodStock;
+    }
+      
+    bedroom(bedroom){
+        var Bedroom = createSprite(200,250,25,25);
+        Bedroom.addImage(garden);
+        Bedroom.scale=0.70;  
+    }
+      
+    garden(garden){ 
+        var Garden = createSprite(200,250,25,25);
+        Garden.addImage(garden);
+        Garden.scale=0.70;
+    }
+      
+    washroom(washroom){
+        var Washroom = createSprite(200,250,25,25);
+        Washroom.addImage(washroom);
+        Washroom.scale=0.70;
+    }
+      
+    getFedTime(lastFed){
+         this.lastFed=lastFed;
+    } 
+     
+    deductFood(){
+        if(this.foodStock>0){
+            this.foodStock = this.foodStock-1;
+        }
+    }
+
+    getFoodStock(){
+        return this.foodStock;
+    }
+    
+    display(){
+        var x=80, y = 100;
+        imageMode(CENTER);
+        image(this.image,720,720,70,70);
+            if(this.foodStock!=0){
+                for(var i=0;i<this.foodStock;i++){
+                    if(i%10===0){
+                         x = 80;
+                        y = y + 50;
+                    }
+                    image(this.image,x,y,50,50);
+                    x=x+30;
+            }  
+         }
+    }
+}
